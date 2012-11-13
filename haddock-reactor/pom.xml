@@ -206,7 +206,7 @@
 			</notifier>
 		</notifiers>
 		<system>jenkins</system>
-		<url>http://jenkins.danielsundberg.nu/job/${project.name}</url>
+		<url>http://jenkins.danielsundberg.nu/job/haddock</url>
 	</ciManagement>
 
 	<scm>
