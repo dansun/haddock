@@ -64,7 +64,7 @@ public class HaddockPersistence implements PersistenceProvider {
     /**
      * Initialization message containing public version.
      */
-    private static final String HADDOCK_PERSISTENCE_INFO    = "Initializing Haddock Persistence " + HaddockConstants.PUBLIC_VERSION + ".\n" +
+    private static final String HADDOCK_PERSISTENCE_INFO    = "Initializing Haddock Persistence " + HaddockConstants.getPublicVersion() + ".\n" +
                                                               "-------------------------------------------------------------------------\n"+
                                                               "   ___ ___    _____  ________  ________   ________  _________  ____  __.\n" +
                                                               "  /   |   \\  /  _  \\ \\______ \\ \\______ \\  \\_____  \\ \\_   ___ \\|    |/ _|\n" +

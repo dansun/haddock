@@ -8,7 +8,6 @@
 	<description>A feeble attempt at implementing the JPA 2.1 spec.</description>
 	<packaging>pom</packaging>
 
-
 	<modules>
 		<module>haddock-core</module>
 		<module>haddock-entitymanager</module>
@@ -16,6 +15,7 @@
 	</modules>
 
 	<properties>
+
 		<maven-compiler-plugin.version>2.3.2</maven-compiler-plugin.version>
 		<maven-release-plugin.version>2.3.2</maven-release-plugin.version>
 		<maven-jar-plugin.version>2.4</maven-jar-plugin.version>
@@ -38,27 +38,32 @@
 		<powermock-junit.version>1.4.12</powermock-junit.version>
 		<powermock-mockito.version>1.4.12</powermock-mockito.version>
 
-		<maven-site-plugin.version>3.0</maven-site-plugin.version>
-		<github-site-plugin.version>0.7</github-site-plugin.version>
-		<downloads-maven-plugin.version>0.6</downloads-maven-plugin.version>
+        <github-site-plugin.version>0.7</github-site-plugin.version>
+        <downloads-maven-plugin.version>0.6</downloads-maven-plugin.version>
+
+        <maven-site-plugin.version>3.0</maven-site-plugin.version>
 		<maven-surefire-report-plugin.version>2.12.4</maven-surefire-report-plugin.version>
 		<maven-javadoc-plugin.version>2.7</maven-javadoc-plugin.version>
 		<maven-project-info-reports-plugin.version>2.2</maven-project-info-reports-plugin.version>
 		<maven-checkstyle-plugin.version>2.9.1</maven-checkstyle-plugin.version>
 		<maven-pmd-plugin.version>2.7.1</maven-pmd-plugin.version>
+
 		<cobertura-maven-plugin.version>2.1</cobertura-maven-plugin.version>
 		<jdepend-maven-plugin.version>2.0-beta-2</jdepend-maven-plugin.version>
 		<findbugs-maven-plugin.version>2.5.2</findbugs-maven-plugin.version>
+        <jacoco-maven-plugin.version>0.6.3.201306030806</jacoco-maven-plugin.version>
 
 	</properties>
 
 	<dependencyManagement>
 		<dependencies>
-			<dependency>
+
+            <dependency>
 				<groupId>javax.persistence</groupId>
 				<artifactId>persistence-api</artifactId>
 				<version>${persistence.version}</version>
 			</dependency>
+
             <dependency>
                 <groupId>org.reflections</groupId>
                 <artifactId>reflections</artifactId>
@@ -71,19 +76,22 @@
 				<version>${project.version}</version>
 				<type>jar</type>
 			</dependency>
-			<dependency>
+
+            <dependency>
 				<groupId>nu.danielsundberg.persistence.haddock</groupId>
 				<artifactId>haddock-core</artifactId>
 				<version>${project.version}</version>
 				<type>test-jar</type>
 			</dependency>
-			<dependency>
+
+            <dependency>
 				<groupId>nu.danielsundberg.persistence.haddock</groupId>
 				<artifactId>haddock-entitymanager</artifactId>
 				<version>${project.version}</version>
 				<type>jar</type>
 			</dependency>
-			<dependency>
+
+            <dependency>
 				<groupId>nu.danielsundberg.persistence.haddock</groupId>
 				<artifactId>haddock-jpa</artifactId>
 				<version>${project.version}</version>
@@ -97,36 +105,42 @@
 				<version>${junit.version}</version>
 				<scope>test</scope>
 			</dependency>
-			<dependency>
+
+            <dependency>
 				<groupId>org.mockito</groupId>
 				<artifactId>mockito-all</artifactId>
 				<version>${mockito.version}</version>
 				<scope>test</scope>
 			</dependency>
-			<dependency>
+
+            <dependency>
 				<groupId>org.powermock</groupId>
 				<artifactId>powermock-api-mockito</artifactId>
 				<version>${powermock-mockito.version}</version>
 				<scope>test</scope>
 			</dependency>
-			<dependency>
+
+            <dependency>
 				<groupId>org.powermock</groupId>
 				<artifactId>powermock-module-junit4</artifactId>
 				<version>${powermock-junit.version}</version>
 				<scope>test</scope>
 			</dependency>
-			<dependency>
+
+            <dependency>
 				<groupId>org.hamcrest</groupId>
 				<artifactId>hamcrest-all</artifactId>
 				<version>${hamcrest.version}</version>
 				<scope>test</scope>
 			</dependency>
-			<dependency>
+
+            <dependency>
 				<groupId>org.hsqldb</groupId>
 				<artifactId>hsqldb</artifactId>
 				<version>${hsqldb.version}</version>
 				<scope>test</scope>
 			</dependency>
+
 		</dependencies>
 	</dependencyManagement>
 
@@ -202,7 +216,7 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>findbugs-maven-plugin</artifactId>
-				<version>${findbugs-maven-plugin.version)</version>
+				<version>${findbugs-maven-plugin.version}</version>
 				<configuration>
 					<xmlOutput>true</xmlOutput>
 					<effort>Max</effort>
@@ -283,7 +297,6 @@
 					</reportPlugins>
 				</configuration>
 			</plugin>
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -304,7 +317,7 @@
 				<artifactId>maven-jar-plugin</artifactId>
 				<version>${maven-jar-plugin.version}</version>
 			</plugin>
-		</plugins>
+        </plugins>
 	</build>
 
 </project>

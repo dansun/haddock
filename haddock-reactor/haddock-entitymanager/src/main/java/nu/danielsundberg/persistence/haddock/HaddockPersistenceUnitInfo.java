@@ -13,46 +13,85 @@ import java.util.Properties;
  */
 public class HaddockPersistenceUnitInfo implements PersistenceUnitInfo {
 
+    /**
+     * Name of created persistence unit.
+     */
     private final String persistenceUnitName;
-    
+
+    /**
+     * Type of transaction for persistence unit.
+     */
     private final PersistenceUnitTransactionType transactionType;
-    
+
+    /**
+     * Constructor for instance o persistence unit.
+     * @param peristenceUnitName name of unit
+     * @param transactionType type of transactions for unit
+     */
     public HaddockPersistenceUnitInfo(String peristenceUnitName, 
                                       PersistenceUnitTransactionType transactionType) {
         this.persistenceUnitName = peristenceUnitName;
         this.transactionType = transactionType;
     }
-    
+
+    /**
+     * Get persistence unit name
+     * @return name of persistence unit
+     */
     @Override
     public String getPersistenceUnitName() {
         return this.persistenceUnitName;
     }
 
+    /**
+     * Get class name of persistence provider for unit
+     * @return name of persistence provider
+     */
     @Override
     public String getPersistenceProviderClassName() {
         return "HaddockPersistence";
     }
 
+    /**
+     * Get type of transactions for persistence unit
+     * @return type of transactions
+     */
     @Override
     public PersistenceUnitTransactionType getTransactionType() {
         return this.transactionType;
     }
 
+    /**
+     * Get transaction handled data source for persistence unit.
+     * @return data source for persistence unit
+     */
     @Override
     public DataSource getJtaDataSource() {
         return null;
     }
 
+    /**
+     * Get non transaction handled data source for persistence unit
+     * @return non handled data source
+     */
     @Override
     public DataSource getNonJtaDataSource() {
         return null;
     }
 
+    /**
+     * Get mapping file names for persistence unit
+     * @return mapping file names
+     */
     @Override
     public List<String> getMappingFileNames() {
         return null;
     }
 
+    /**
+     * Get configured jar file urls
+     * @return
+     */
     @Override
     public List<URL> getJarFileUrls() {
         return null;
