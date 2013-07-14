@@ -1,11 +1,12 @@
 package nu.danielsundberg.persistence.haddock.exception;
 
+import nu.danielsundberg.persistence.AbstractTest;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-public class HaddockPersistenceExceptionTest {
+public class HaddockPersistenceExceptionTest extends AbstractTest {
 
     private static final String TEST_TEXT = "Test text.";
 

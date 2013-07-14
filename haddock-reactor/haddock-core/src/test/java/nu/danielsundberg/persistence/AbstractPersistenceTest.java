@@ -38,7 +38,7 @@ import java.util.Properties;
  * Abstract testclass for Haddock.
  */
 @RunWith(MockitoJUnitRunner.class)
-public abstract class AbstractPersistenceTest {
+public abstract class AbstractPersistenceTest extends AbstractTest {
 
     private static EntityManagerFactory entityManagerFactory;
     private static Connection connection;
