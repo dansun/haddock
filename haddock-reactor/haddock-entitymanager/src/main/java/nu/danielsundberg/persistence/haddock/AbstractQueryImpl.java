@@ -1,5 +1,6 @@
 package nu.danielsundberg.persistence.haddock;
-/* 
+
+/*
  *   ___ ___    _____  ________  ________   ________  _________  ____  __.
  *  /   |   \  /  _  \ \______ \ \______ \  \_____  \ \_   ___ \|    |/ _|
  * /    ~    \/  /_\  \ |    |  \ |    |  \  /   |   \/    \  \/|      <  
@@ -22,14 +23,16 @@ package nu.danielsundberg.persistence.haddock;
  * limitations under the License.
  */
 
+import javax.persistence.FlushModeType;
+import javax.persistence.Query;
+import javax.persistence.TemporalType;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.FlushModeType;
-import javax.persistence.Query;
-import javax.persistence.TemporalType;
-
+/**
+ * Abstract Haddock query implementation
+ */
 public abstract class AbstractQueryImpl implements Query {
 
 	@Override

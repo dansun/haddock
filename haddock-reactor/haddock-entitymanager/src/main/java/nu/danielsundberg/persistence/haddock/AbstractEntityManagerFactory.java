@@ -1,5 +1,6 @@
 package nu.danielsundberg.persistence.haddock;
-/* 
+
+/*
  *   ___ ___    _____  ________  ________   ________  _________  ____  __.
  *  /   |   \  /  _  \ \______ \ \______ \  \_____  \ \_   ___ \|    |/ _|
  * /    ~    \/  /_\  \ |    |  \ |    |  \  /   |   \/    \  \/|      <  
@@ -22,25 +23,49 @@ package nu.danielsundberg.persistence.haddock;
  * limitations under the License.
  */
 
-import java.util.Map;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import java.util.Map;
 
+/**
+ * Abstract Haddock entity manager factory
+ */
 public abstract class AbstractEntityManagerFactory implements EntityManagerFactory {
-	
-	protected boolean isOpen = false;
-	
+
+    /**
+     * Indication whether factory is open or not.
+     */
+	private boolean isOpen = false;
+
+    /**
+     * Closes this factory.
+     */
 	@Override
-	public abstract void close();
-	
+	public void close() {
+        isOpen = false;
+    }
+
+    /**
+     * Creates entity manager.
+     * @return Entity manager.
+     */
 	@Override
 	public abstract EntityManager createEntityManager();
-	
+
+
+    /**
+     * Creates entity manager with given properties.
+     * @param properties Given properties set to entity manager.
+     * @return Entity manager with given properties.
+     */
 	@Override
 	@SuppressWarnings("rawtypes")
-	public abstract EntityManager createEntityManager(Map arg0);
-	
+	public abstract EntityManager createEntityManager(Map properties);
+
+    /**
+     * Indicates whether the factory is open or not.
+     * @return true if factory is open.
+     */
 	@Override
 	public boolean isOpen() {
 		return isOpen;

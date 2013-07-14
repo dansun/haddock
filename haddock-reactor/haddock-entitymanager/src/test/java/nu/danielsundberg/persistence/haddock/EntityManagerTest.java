@@ -1,17 +1,18 @@
 package nu.danielsundberg.persistence.haddock;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.persistence.EntityManager;
-import javax.persistence.spi.PersistenceUnitInfo;
-
 import nu.danielsundberg.persistence.AbstractPersistenceTest;
-import nu.danielsundberg.persistence.haddock.HaddockEntityManagerFactory;
-
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+
+import javax.persistence.Entity;
+import javax.persistence.EntityManager;
+import javax.persistence.Id;
+import javax.persistence.spi.PersistenceUnitInfo;
+import java.util.HashMap;
+import java.util.Map;
 
 /* 
  *   ___ ___    _____  ________  ________   ________  _________  ____  __.
@@ -36,11 +37,16 @@ import org.mockito.Mock;
  * limitations under the License.
  */
 
+/**
+ * Tests for default Haddock entity manager.
+ */
+@RunWith(MockitoJUnitRunner.class)
 public class EntityManagerTest extends AbstractPersistenceTest {
 
-	private EntityManager entityManager;
-	@Mock PersistenceUnitInfo persitenceUnit;
-	Map<String, String> properties;
+    @Mock private PersistenceUnitInfo persitenceUnit;
+
+    private EntityManager entityManager;
+    private Map<String, String> properties;
 	
 	@Before
 	public void setup() {
@@ -52,5 +58,11 @@ public class EntityManagerTest extends AbstractPersistenceTest {
 	public void testClear() {
 		entityManager.clear();
 	}
+
+    @Entity
+    public class EntityManagerTestEntity {
+        @Id
+        private long id;
+    }
 	
 }

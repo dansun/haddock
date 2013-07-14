@@ -1,5 +1,6 @@
 package nu.danielsundberg.persistence.haddock;
-/* 
+
+/*
  *   ___ ___    _____  ________  ________   ________  _________  ____  __.
  *  /   |   \  /  _  \ \______ \ \______ \  \_____  \ \_   ___ \|    |/ _|
  * /    ~    \/  /_\  \ |    |  \ |    |  \  /   |   \/    \  \/|      <  
@@ -22,8 +23,9 @@ package nu.danielsundberg.persistence.haddock;
  * limitations under the License.
  */
 
+/**
+ * Haddock default Query implementation.
+ */
 public class QueryImpl extends AbstractQueryImpl {
-
-
 
 }
