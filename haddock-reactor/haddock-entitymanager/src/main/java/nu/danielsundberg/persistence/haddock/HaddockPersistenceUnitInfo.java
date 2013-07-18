@@ -97,39 +97,67 @@ public class HaddockPersistenceUnitInfo implements PersistenceUnitInfo {
         return null;
     }
 
+    /**
+     * Get persistence unit root url
+     * @return root url
+     */
     @Override
     public URL getPersistenceUnitRootUrl() {
         return null;
     }
 
+    /**
+     * Get managed classnames
+     * @return list of managed class names
+     */
     @Override
     public List<String> getManagedClassNames() {
         return null;
     }
 
+    /**
+     * Get exclude unlisted classes
+     * @return indication of exclusion of unlisted classes
+     */
     @Override
     public boolean excludeUnlistedClasses() {
         return false;
     }
 
+    /**
+     * Get configured properties for persistence unit
+     * @return configured properties
+     */
     @Override
     public Properties getProperties() {
         return null;
     }
 
+    /**
+     * Get classloader for persistence unit
+     * @return classloader
+     */
     @Override
     public ClassLoader getClassLoader() {
-        return null;
+        return this.getClassLoader();
     }
 
+    /**
+     * Add new transformer
+     * @param transformer adds new class transformer
+     */
     @Override
     public void addTransformer(ClassTransformer transformer) {
 
     }
 
+    /**
+     * Get new temp class loader
+     * @return temp class loader
+     */
     @Override
     public ClassLoader getNewTempClassLoader() {
-        return null;
+        return ClassLoader.getSystemClassLoader();
     }
 
 }

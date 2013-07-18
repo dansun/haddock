@@ -25,6 +25,6 @@ package nu.danielsundberg.persistence.haddock;
 /**
  * Abstract Haddock entity manager implementation
  */
-public class EntityManagerImpl extends AbstractEntityManagerImpl {
+public abstract class EntityManagerImpl extends AbstractEntityManagerImpl {
 
 }

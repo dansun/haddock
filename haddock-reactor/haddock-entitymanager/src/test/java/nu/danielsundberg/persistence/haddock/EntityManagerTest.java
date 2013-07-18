@@ -14,6 +14,10 @@ import javax.persistence.spi.PersistenceUnitInfo;
 import java.util.HashMap;
 import java.util.Map;
 
+import static org.hamcrest.Matchers.equalTo;
+import static org.junit.Assert.assertThat;
+import static org.hamcrest.Matchers.is;
+
 /* 
  *   ___ ___    _____  ________  ________   ________  _________  ____  __.
  *  /   |   \  /  _  \ \______ \ \______ \  \_____  \ \_   ___ \|    |/ _|
@@ -43,6 +47,8 @@ import java.util.Map;
 @RunWith(MockitoJUnitRunner.class)
 public class EntityManagerTest extends AbstractPersistenceTest {
 
+    private static final Long ENTITY_ID = 1l;
+
     @Mock private PersistenceUnitInfo persitenceUnit;
 
     private EntityManager entityManager;
@@ -51,18 +57,70 @@ public class EntityManagerTest extends AbstractPersistenceTest {
 	@Before
 	public void setup() {
 		properties = new HashMap<String, String>();
-		entityManager = new HaddockEntityManagerFactory(persitenceUnit, properties).createEntityManager();
+		entityManager = new HaddockEntityManagerFactory(persitenceUnit, properties)
+                .createEntityManager();
 	}
 	
 	@Test
 	public void testClear() {
+        EntityManagerTestEntity entity = new EntityManagerTestEntity(ENTITY_ID);
+        assertThat(entityManager.contains(entity), is(Boolean.FALSE));
+        entityManager.persist(entity);
+        assertThat(entityManager.contains(entity), is(Boolean.TRUE));
 		entityManager.clear();
+        assertThat(entityManager.contains(entity), is(Boolean.FALSE));
 	}
+
+    @Test
+    public void testContains() {
+        EntityManagerTestEntity entity = new EntityManagerTestEntity(ENTITY_ID);
+        assertThat(entityManager.contains(entity), is(Boolean.FALSE));
+        entityManager.persist(entity);
+        assertThat(entityManager.contains(entity), is(Boolean.TRUE));
+    }
+
+    @Test
+    public void testPersist() {
+        EntityManagerTestEntity entity = new EntityManagerTestEntity(ENTITY_ID);
+        assertThat(entityManager.contains(entity), is(Boolean.FALSE));
+        entityManager.persist(entity);
+        assertThat(entityManager.contains(entity), is(Boolean.TRUE));
+    }
+
+    @Test
+    public void testRemove() {
+        EntityManagerTestEntity entity = new EntityManagerTestEntity(ENTITY_ID);
+        assertThat(entityManager.contains(entity), is(Boolean.FALSE));
+        entityManager.persist(entity);
+        assertThat(entityManager.contains(entity), is(Boolean.TRUE));
+        entityManager.remove(entity);
+        assertThat(entityManager.contains(entity), is(Boolean.FALSE));
+    }
+
+    @Test
+    public void testFind() {
+        EntityManagerTestEntity entity = new EntityManagerTestEntity(ENTITY_ID);
+        assertThat(entityManager.contains(entity), is(Boolean.FALSE));
+        entityManager.persist(entity);
+        assertThat(entityManager.find(EntityManagerTestEntity.class, ENTITY_ID),
+                is(equalTo(entity)));
+
+    }
 
     @Entity
     public class EntityManagerTestEntity {
+
         @Id
         private long id;
+
+        EntityManagerTestEntity(long id) {
+            this.id = id;
+        }
+
+        long getId() {
+            return this.id;
+        }
+
     }
 	
 }
